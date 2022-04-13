@@ -1,0 +1,58 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+    {#METHODE 1#}
+    {#
+    {{form(employeForm)}}
+    #}
+
+    {#METHODE 2#}
+    {#
+    {{form_row(employeForm.prenom)}}
+    {{form_row(employeForm.nom)}}
+    {{form_row(employeForm.telephone)}}
+    {{form_row(employeForm.email)}}
+    {{form_row(employeForm.adresse)}}
+    {{form_row(employeForm.poste)}}
+    {{form_row(employeForm.salaire)}}
+    {{form_row(employeForm.datedenaissance)}}
+    #}
+
+    {#METHODE 3#}
+    {{form_start(employeForm)}}
+
+        {{form_label(employeForm.prenom, 'Prenom :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.prenom, {'attr' : {'class':'input' , 'placeholder' : 'prenom'} } ) }}
+
+        {{form_label(employeForm.nom, 'nom :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.nom, {'attr' : {'class':'input' , 'placeholder' : 'Nom'} } ) }}
+
+        {{form_label(employeForm.telephone, 'telephone :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.telephone, {'attr' : {'class':'input' , 'placeholder' : 'telephone'} } ) }}
+
+        {{form_label(employeForm.email, 'email :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.email, {'attr' : {'class':'input' , 'placeholder' : 'email'} } ) }}
+
+        {{form_label(employeForm.adresse, 'adresse :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.adresse, {'attr' : {'class':'input' , 'placeholder' : 'adresse'} } ) }}
+
+        {{form_label(employeForm.poste, 'poste :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.poste, {'attr' : {'class':'input' , 'placeholder' : 'poste'} } ) }}
+
+        {{form_label(employeForm.salaire, 'salaire :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.salaire, {'attr' : {'class':'input' , 'placeholder' : 'salaire'} } ) }}
+
+        {{form_label(employeForm.datedenaissance, 'datedenaissance :', {'label_attr' : {'class' : 'label' } } ) }}
+        {{form_widget(employeForm.datedenaissance, {'attr' : {'class':'input' , 'placeholder' : 'datedenaissance'} } ) }}
+
+    {{form_end(employeForm)}}
+
+
+    <a href="{{path('employes_list')}}">Retour</a>
+{% endblock %}
+
+
+
+

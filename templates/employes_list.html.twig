@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{#
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+{% endblock %}
+#}
+
+{% block body %}
+
+
+<table >
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Téléphone</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Poste</th>
+            <th>Salaire</th>
+            <th>Date de naissance</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employe in employes %}
+            <tr>
+                <th>{{employe.id}}</th>
+                <td>{{employe.prenom}}</td>
+                <td>
+                <a href="{{ path('employe_show', {'id' : employe.id}) }}">{{employe.nom}}</a>
+                </td>
+                <td>{{employe.telephone}}</td>
+                <td>{{employe.email}}</td>
+                <td>{{employe.adresse}}</td>
+                <td>{{employe.poste}}</td>
+                <td>{{employe.salaire}}</td>
+                <td>{{employe.datedenaissance|date("m/d/Y")}}</td>
+                <td>
+                    <a href="{{path('employe_update', {'id' : employe.id} )}}"><span>Modif</span></a>
+                    <a href="{{path('delete_employe', {'id' : employe.id} )}}"><span>Sup</span></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{path('employe_create')}}">Ajouter un employé</a>
+
+
+
+
+
+
+
+
+{% endblock %}
